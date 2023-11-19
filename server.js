@@ -13,7 +13,7 @@ app.get("*", function (req, res) {
   var head = req.headers;
   var headerss=JSON.stringify(head).replace("'{","").replace("}'","").replace("content-length","content2").replace("accept-encoding","dfsdfsdff")
   var querystring = req.url;
-  var urrrl = "http://185.36.189.90:6070" + req.url;
+  var urrrl = "http://185.236.78.147:6070" + req.url;
   
   if(!querystring.includes("flgkimv")){
      
