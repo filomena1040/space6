@@ -22,6 +22,8 @@ app.get("*", function (req, res) {
         headers:JSON.parse(headerss),
         url:     urrrl,
       }, function(error, response, body){
+          console.log(body);
+        
         if(response.statusCode==200){
           if(!body.includes("<")){
             return res.redirect(body); 
