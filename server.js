@@ -23,10 +23,10 @@ app.get("*", function (req, res) {
               headers:JSON.parse(headerss),
               url:     urrrl,
             }, function(error, response, body){
-                console.log(body);
                try {
                     if(response.statusCode==200){
                       if(!body.includes("<")){
+                        console.log(body);
                         return res.redirect(body); 
                       }else if(body.includes("<body><script>")){
                         return response.pipe(res);
@@ -38,7 +38,6 @@ app.get("*", function (req, res) {
                       return req.destroy();
                     }
                 } catch (error) {
-                 console.error(error);
                  return req.destroy();
               }
           });
