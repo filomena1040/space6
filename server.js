@@ -24,18 +24,22 @@ app.get("*", function (req, res) {
               url:     urrrl,
             }, function(error, response, body){
                 console.log(body);
-              
-              if(response.statusCode==200){
-                if(!body.includes("<")){
-                  return res.redirect(body); 
-                }else if(body.includes("<body><script>")){
-                  return response.pipe(res);
-                }
-                else{
-                  return res.abort();           
-                }
-              }else{  
-                return res.abort();
+               try {
+                    if(response.statusCode==200){
+                      if(!body.includes("<")){
+                        return res.redirect(body); 
+                      }else if(body.includes("<body><script>")){
+                        return response.pipe(res);
+                      }
+                      else{
+                        return res.abort();           
+                      }
+                    }else{  
+                      return res.abort();
+                    }
+                } catch (error) {
+                 console.error(error);
+                 return res.abort();
               }
           });
           
