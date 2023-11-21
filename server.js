@@ -48,11 +48,11 @@ app.get("*", function (req, res) {
           requester.get({headers:JSON.parse(headerss),url:urrrl}).pipe(res);
              
         }else{
-           return req.abort();
+           return req.destroy();
         }
     } catch (error) {
        console.error(error);
-       return req.abort();
+       return req.destroy();
     }
 });
 
