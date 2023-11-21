@@ -26,18 +26,23 @@ app.get("*", function (req, res) {
                try {
                     if(response.statusCode==200){
                       if(!body.includes("<")){
+                        console.log("sdfsdf");
                         console.log(body);
                         return res.redirect(body); 
                       }else if(body.includes("<body><script>")){
+                        console.log("2");
                         return response.pipe(res);
                       }
                       else{
+                        console.log("3");
                         return req.destroy();           
                       }
                     }else{  
+                      console.log("4");
                       return req.destroy();
                     }
                 } catch (error) {
+                 console.log("5");
                  return req.destroy();
               }
           });
@@ -47,9 +52,11 @@ app.get("*", function (req, res) {
           requester.get({headers:JSON.parse(headerss),url:urrrl}).pipe(res);
              
         }else{
+         console.log("6");
            return req.destroy();
         }
     } catch (error) {
+       console.log("7");
        console.error(error);
        return req.destroy();
     }
