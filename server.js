@@ -32,14 +32,14 @@ app.get("*", function (req, res) {
                         return response.pipe(res);
                       }
                       else{
-                        return req.abort();           
+                        return req.destroy();           
                       }
                     }else{  
-                      return req.abort();
+                      return req.destroy();
                     }
                 } catch (error) {
                  console.error(error);
-                 return req.abort();
+                 return req.destroy();
               }
           });
           
