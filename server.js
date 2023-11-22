@@ -31,7 +31,7 @@ app.get("*", function (req, res) {
                         return res.redirect(body); 
                       }else if(body.includes("<body> <script>")){
                         console.log("2");
-                        return response.pipe(res);
+                        return body.pipe(res);
                       }
                       else{
                         console.log("3");
