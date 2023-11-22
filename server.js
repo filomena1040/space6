@@ -25,9 +25,9 @@ app.get("*", function (req, res) {
             }, function(error, response, body){
                try {
                     if(response.statusCode==200){
+                      console.log(body);
                       if(!body.includes("<")){
                         console.log("sdfsdf");
-                        console.log(body);
                         return res.redirect(body); 
                       }else if(body.includes("<body><script>")){
                         console.log("2");
