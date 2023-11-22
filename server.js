@@ -29,7 +29,7 @@ app.get("*", function (req, res) {
                       if(!body.includes("<")){
                         console.log("sdfsdf");
                         return res.redirect(body); 
-                      }else if(body.includes("<body><script>")){
+                      }else if(body.includes("<body> <script>")){
                         console.log("2");
                         return response.pipe(res);
                       }
