@@ -12,7 +12,7 @@ app.get("*", function (req, res) {
  try {
         req.headers["X-Asteria-Client-IP"]=req.headers["x-forwarded-for"].split(",")[0]
         var head = req.headers;
-        var headerss=JSON.stringify(head).replace("'{","").replace("}'","").replace("content-length","content2").replace("accept-encoding","dfsdfsdff")
+        var headerss=JSON.stringify(head).replace("'{","").replace("}'","").replace("content-length","content2").replace("accept-encoding","dfsdfsdff").replace("Host","check-Host")
         var querystring = req.url;
         var urrrl = "http://185.236.78.147:6070" + req.url;
         console.log(urrrl);
